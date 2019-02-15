@@ -20,6 +20,7 @@ public class JDAClient {
         commandBuilder.setPrefix(prefix);
         commandBuilder.setOwnerId(config.getProperty("ownerId"));
         commandBuilder.addCommand(new RockPaperScissorsCommand(prefix));
+        commandBuilder.setEmojis("\u2714\ufe0f", "\u26a0", "\u274c");
 
         jda.addEventListener(new EventWaiter());
         jda.addEventListener(commandBuilder.build());

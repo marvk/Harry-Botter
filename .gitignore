@@ -200,3 +200,5 @@ buildNumber.properties
 
 **/discord.token
 **/config.properties
+
+logs/**

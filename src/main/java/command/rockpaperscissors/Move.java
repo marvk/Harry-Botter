@@ -1,5 +1,7 @@
 package command.rockpaperscissors;
 
+import java.util.Optional;
+
 public enum Move {
     ROCK, PAPER, SCISSORS;
 
@@ -15,7 +17,11 @@ public enum Move {
         return this.beatsMove == other;
     }
 
-    public static Move valueOfIgnoresCase(final String s) {
-        return valueOf(s.toUpperCase());
+    public static Optional<Move> valueOfIgnoresCase(final String s) {
+        try {
+            return Optional.of(valueOf(s.toUpperCase()));
+        } catch (final IllegalArgumentException ignored) {
+            return Optional.empty();
+        }
     }
 }
