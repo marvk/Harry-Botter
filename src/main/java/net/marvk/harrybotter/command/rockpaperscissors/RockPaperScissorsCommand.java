@@ -23,19 +23,21 @@ public class RockPaperScissorsCommand extends HarryCommand {
     @Override
     protected void execute(final CommandEvent commandEvent) {
         final String message = getActualMessage(commandEvent);
+        final String authorAtMention = Util.getAtMention(commandEvent.getAuthor());
+
         log.debug("Received " + message + " from " + commandEvent.getAuthor().getName());
 
         final Optional<Move> maybePlayerMove = Move.valueOfIgnoresCase(message);
 
         if (maybePlayerMove.isEmpty()) {
             final String legalMovesList = Arrays.stream(MOVES).map(Move::toString).collect(Collectors.joining(", "));
-            commandEvent.reply("Illegal move, try one of these: " + legalMovesList);
+            commandEvent.reply(authorAtMention + ", illegal move! Try one of these: " + legalMovesList);
             return;
         }
 
         final Move cpuMove = randomMove();
 
-        commandEvent.reply(outcome(maybePlayerMove.get(), cpuMove, Util.getAtMention(commandEvent.getAuthor())));
+        commandEvent.reply(outcome(maybePlayerMove.get(), cpuMove, authorAtMention));
     }
 
     private static Move randomMove() {
