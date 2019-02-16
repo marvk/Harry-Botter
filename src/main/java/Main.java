@@ -55,6 +55,12 @@ public class Main extends ListenerAdapter {
         final URL systemResource = ClassLoader.getSystemResource(name);
 
         if (systemResource == null) {
+            final Path path = Paths.get(name);
+
+            if (Files.exists(path)) {
+                return Optional.of(path);
+            }
+
             return Optional.empty();
         }
 

@@ -198,7 +198,7 @@ buildNumber.properties
 
 # End of https://www.gitignore.io/api/java,maven,eclipse,java-web,intellij+all
 
-**/discord.token
-**/config.properties
+discord.token
+config.properties
 
 logs/**

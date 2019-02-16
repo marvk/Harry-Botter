@@ -1,5 +1,6 @@
 import com.jagrosh.jdautilities.commandclient.CommandClientBuilder;
 import com.jagrosh.jdautilities.waiter.EventWaiter;
+import command.othello.OthelloCommand;
 import command.rockpaperscissors.RockPaperScissorsCommand;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDABuilder;
@@ -20,6 +21,7 @@ public class JDAClient {
         commandBuilder.setPrefix(prefix);
         commandBuilder.setOwnerId(config.getProperty("ownerId"));
         commandBuilder.addCommand(new RockPaperScissorsCommand(prefix));
+        commandBuilder.addCommand(new OthelloCommand(prefix));
         commandBuilder.setEmojis("\u2714\ufe0f", "\u26a0", "\u274c");
 
         jda.addEventListener(new EventWaiter());
