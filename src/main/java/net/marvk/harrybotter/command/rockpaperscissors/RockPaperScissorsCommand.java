@@ -1,8 +1,9 @@
 package net.marvk.harrybotter.command.rockpaperscissors;
 
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
-import net.marvk.harrybotter.command.HarryCommand;
 import lombok.extern.slf4j.Slf4j;
+import net.marvk.harrybotter.Util;
+import net.marvk.harrybotter.command.HarryCommand;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -34,24 +35,24 @@ public class RockPaperScissorsCommand extends HarryCommand {
 
         final Move cpuMove = randomMove();
 
-        commandEvent.reply(outcome(maybePlayerMove.get(), cpuMove));
+        commandEvent.reply(outcome(maybePlayerMove.get(), cpuMove, Util.getAtMention(commandEvent.getAuthor())));
     }
 
     private static Move randomMove() {
         return MOVES[ThreadLocalRandom.current().nextInt(MOVES.length)];
     }
 
-    private static String outcome(final Move playerMove, final Move cpuMove) {
-        final String prefix = "I picked " + cpuMove + ", ";
+    private static String outcome(final Move playerMove, final Move cpuMove, final String username) {
+        final String prefix = "I picked " + cpuMove + ", " + username + " ";
 
         if (playerMove.beats(cpuMove)) {
-            return prefix + "you win!";
+            return prefix + "wins!";
         }
 
         if (cpuMove.beats(playerMove)) {
-            return prefix + "you loose!";
+            return prefix + "looses!";
         }
 
-        return prefix + "it's a draw!";
+        return prefix + "draws!";
     }
 }

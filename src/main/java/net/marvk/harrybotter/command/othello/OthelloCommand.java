@@ -3,6 +3,7 @@ package net.marvk.harrybotter.command.othello;
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.core.entities.User;
+import net.marvk.harrybotter.Util;
 import net.marvk.harrybotter.command.HarryCommand;
 import net.marvk.nuthello.game.*;
 
@@ -58,12 +59,12 @@ public class OthelloCommand extends HarryCommand {
         final Optional<Point> maybePlay = getPoint(actualMessage, game.getBoard().getValidMoves(Disc.BLACK));
 
         if (maybePlay.isEmpty()) {
-            event.reply("Please reply with a valid turn id");
+            event.reply(Util.getAtMention(author) + ", please reply with a valid turn id");
             return;
         }
 
         if (game.getTurn() != Disc.BLACK) {
-            event.reply("It wasn't your turn!");
+            event.reply(Util.getAtMention(author) + ", it wasn't your turn!");
             return;
         }
 
@@ -71,7 +72,7 @@ public class OthelloCommand extends HarryCommand {
     }
 
     private void startSession(final Session session, final CommandEvent event) {
-        final String authorName = event.getAuthor().getName();
+        final String authorName = Util.getAtMention(event.getAuthor());
         final Game game = session.getGame();
 
         final Future<?> future = executorService.submit(() -> {
