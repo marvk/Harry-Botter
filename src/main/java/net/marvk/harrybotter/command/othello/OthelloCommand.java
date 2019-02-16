@@ -1,9 +1,9 @@
 package net.marvk.harrybotter.command.othello;
 
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
-import net.marvk.harrybotter.command.HarryCommand;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.core.entities.User;
+import net.marvk.harrybotter.command.HarryCommand;
 import net.marvk.nuthello.game.*;
 
 import java.util.Collections;
@@ -112,8 +112,10 @@ public class OthelloCommand extends HarryCommand {
         });
 
         executorService.schedule(() -> {
-            event.reply(authorName + ", your game has been cancelled (15 minute timeout)!");
-            future.cancel(true);
+            if (!future.isDone()) {
+                future.cancel(true);
+                event.reply(authorName + ", your game has been cancelled (15 minute timeout)!");
+            }
         }, MAX_GAME_TIME_IN_MINUTES, TimeUnit.MINUTES);
     }
 
