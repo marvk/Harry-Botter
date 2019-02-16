@@ -1,7 +1,7 @@
-package command.othello;
+package net.marvk.harrybotter.command.othello;
 
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
-import command.HarryCommand;
+import net.marvk.harrybotter.command.HarryCommand;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.core.entities.User;
 import net.marvk.nuthello.game.*;

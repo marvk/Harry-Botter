@@ -38,7 +38,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>net.marvk.harrybotter.Main</mainClass>
                         </manifest>
                     </archive>
 

@@ -1,4 +1,4 @@
-package command.othello;
+package net.marvk.harrybotter.command.othello;
 
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.core.entities.User;

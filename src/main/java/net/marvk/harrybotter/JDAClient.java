@@ -1,7 +1,9 @@
+package net.marvk.harrybotter;
+
 import com.jagrosh.jdautilities.commandclient.CommandClientBuilder;
 import com.jagrosh.jdautilities.waiter.EventWaiter;
-import command.othello.OthelloCommand;
-import command.rockpaperscissors.RockPaperScissorsCommand;
+import net.marvk.harrybotter.command.othello.OthelloCommand;
+import net.marvk.harrybotter.command.rockpaperscissors.RockPaperScissorsCommand;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDABuilder;
 

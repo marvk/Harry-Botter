@@ -1,7 +1,7 @@
-package command.rockpaperscissors;
+package net.marvk.harrybotter.command.rockpaperscissors;
 
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
-import command.HarryCommand;
+import net.marvk.harrybotter.command.HarryCommand;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;

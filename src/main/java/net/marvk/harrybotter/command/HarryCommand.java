@@ -1,4 +1,4 @@
-package command;
+package net.marvk.harrybotter.command;
 
 import com.jagrosh.jdautilities.commandclient.Command;
 import com.jagrosh.jdautilities.commandclient.CommandEvent;

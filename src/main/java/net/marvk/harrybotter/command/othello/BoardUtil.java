@@ -1,4 +1,4 @@
-package command.othello;
+package net.marvk.harrybotter.command.othello;
 
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciitable.CWC_LongestLine;

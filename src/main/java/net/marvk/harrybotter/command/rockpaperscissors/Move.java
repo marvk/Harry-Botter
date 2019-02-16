@@ -1,4 +1,4 @@
-package command.rockpaperscissors;
+package net.marvk.harrybotter.command.rockpaperscissors;
 
 import java.util.Optional;
 
